@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toggle Cards Example</title>
+
+    <!-- Bootstrap CDN for styling -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      .trip-details-page .card {
+        margin-top: 20px;
+        border-radius: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+      }
+      .trip-details-page .extra-details {
+        display: none;
+      }
+      .trip-details-page .badge-status {
+        font-size: 0.8rem;
+        padding: 0.4em 0.7em;
+        border-radius: 15px;
+      }
+      .badge-completed {
+        background-color: #28a745;
+        color: white;
+      }
+      .badge-upcoming {
+        background-color: #007bff;
+        color: white;
+      }
+      .badge-cancelled {
+        background-color: #dc3545;
+        color: white;
+      }
+    </style>
+  </head>
+  <body class="trip-details-page">
+    <div class="container mt-4">
+      <!-- Trip Details Card 1 -->
+      <div class="card" id="card1">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center">
+            <h5 class="card-title">Trip Details</h5>
+            <span class="badge badge-status badge-upcoming">Upcoming</span>
+          </div>
+          <div class="from-to">
+            <p><strong>From:</strong> Address 1</p>
+            <p><strong>To:</strong> Address 2</p>
+          </div>
+          <div class="extra-details">
+            <p><strong>Duration:</strong> 3 Days</p>
+            <p><strong>Driver:</strong> John Doe</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trip Details Card 2 -->
+      <div class="card" id="card2">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center">
+            <h5 class="card-title">Trip Details</h5>
+            <span class="badge badge-status badge-completed">Completed</span>
+          </div>
+          <div class="from-to">
+            <p><strong>From:</strong> Address 3</p>
+            <p><strong>To:</strong> Address 4</p>
+          </div>
+          <div class="extra-details">
+            <p><strong>Duration:</strong> 2 Days</p>
+            <p><strong>Driver:</strong> Jane Smith</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trip Details Card 3 -->
+      <div class="card" id="card3">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center">
+            <h5 class="card-title">Trip Details</h5>
+            <span class="badge badge-status badge-cancelled">Cancelled</span>
+          </div>
+          <div class="from-to">
+            <p><strong>From:</strong> Address 5</p>
+            <p><strong>To:</strong> Address 6</p>
+          </div>
+          <div class="extra-details">
+            <p><strong>Duration:</strong> 1 Day</p>
+            <p><strong>Driver:</strong> Mark Taylor</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        $('.card').on('click', function() {
+          // Collapse all other cards' extra details
+          $('.card').not(this).find('.extra-details').slideUp();
+
+          // Toggle the extra details of the clicked card
+          $(this).find('.extra-details').slideToggle();
+        });
+      });
+    </script>
+  </body>
+</html>
